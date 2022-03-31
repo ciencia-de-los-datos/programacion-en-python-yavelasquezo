@@ -11,7 +11,11 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 
 """
+file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
 
+file=[z.replace("\n","")for z in file]
+file=[z.replace("\t",";")for z in file]
+file=[z.split(";") for z in file]
 
 def pregunta_01():
     """
@@ -21,7 +25,12 @@ def pregunta_01():
     214
 
     """
-    return
+    suma=0
+for i in file:
+  valor=int(i[1])
+  suma=suma+valor
+
+    return suma
 
 
 def pregunta_02():
