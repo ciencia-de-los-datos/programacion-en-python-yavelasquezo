@@ -11,130 +11,137 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 
 """
-file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
-
-file=[z.replace("\n","")for z in file]
-file=[z.replace("\t",";")for z in file]
-file=[z.split(";") for z in file]
 
 def pregunta_01():
-    """
-    Retorne la suma de la segunda columna.
-
-    Rta/
-    214
-
-    """
+    file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
     suma=0
-for i in file:
-  valor=int(i[1])
-  suma=suma+valor
-
+    for i in file:
+        valor=int(i[1])
+        suma=suma+valor
     return suma
 
-
 def pregunta_02():
-    """
-    Retorne la cantidad de registros por cada letra de la primera columna como la lista
-    de tuplas (letra, cantidad), ordendas alfabéticamente.
-
-    Rta/
-    [
-        ("A", 8),
-        ("B", 7),
-        ("C", 5),
-        ("D", 6),
-        ("E", 14),
-    ]
-
-    """
-    return
+    file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
+    contador={}
+    for i in file:
+        elemento=i[0]
+        if elemento in contador.keys():
+            contador[elemento] = contador[elemento]+1
+        else:
+            contador[elemento]=1
+    lista=list(zip(contador.keys(), contador.values()))
+    return lista
 
 
 def pregunta_03():
-    """
-    Retorne la suma de la columna 2 por cada letra de la primera columna como una lista
-    de tuplas (letra, suma) ordendas alfabeticamente.
-
-    Rta/
-    [
-        ("A", 53),
-        ("B", 36),
-        ("C", 27),
-        ("D", 31),
-        ("E", 67),
-    ]
-
-    """
-    return
+    file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
+    suma={}
+    for i in file:
+        elemento=i[0]
+        if elemento in suma.keys():
+            suma[elemento] = suma[elemento]+int(i[1])
+        else:
+            suma[elemento]=int(i[1])
+    lista=list(zip(suma.keys(), suma.values()))
+    return lista
 
 
 def pregunta_04():
-    """
-    La columna 3 contiene una fecha en formato `YYYY-MM-DD`. Retorne la cantidad de
-    registros por cada mes, tal como se muestra a continuación.
-
-    Rta/
-    [
-        ("01", 3),
-        ("02", 4),
-        ("03", 2),
-        ("04", 4),
-        ("05", 3),
-        ("06", 3),
-        ("07", 5),
-        ("08", 6),
-        ("09", 3),
-        ("10", 2),
-        ("11", 2),
-        ("12", 3),
-    ]
-
-    """
-    return
+    file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
+    #genero mi diccionario en 0
+    contador={}
+    #empiezo mi ciclo
+    for i in file:
+        #hago lista de la 3era fila
+        elemento=i[2].split("-")
+        #genero lista de solo los meses
+        coso=elemento[1]
+        #cuento segun el mes
+        if coso in contador.keys():
+            contador[coso]=contador[coso]+1
+        else:
+            contador[coso]=1
+    lista=list(zip(contador.keys(),contador.values()))
+  
+  
+    return lista
 
 
 def pregunta_05():
-    """
-    Retorne una lista de tuplas con el valor maximo y minimo de la columna 2 por cada
-    letra de la columa 1.
-
-    Rta/
-    [
-        ("A", 9, 2),
-        ("B", 9, 1),
-        ("C", 9, 0),
-        ("D", 8, 3),
-        ("E", 9, 1),
-    ]
-
-    """
-    return
+    file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
+    lista=[]
+    for i in file:
+        if i[0] not in lista:
+            lista.append(i[0])
+    lista.sort(reverse=False)
+    listamin=[]
+    listamax=[]
+    for j in lista:
+        maxia=0
+        for k in file:
+            if k[0]==j:
+                if int(k[1])>maxia:
+                    maxia=int(k[1])
+        listamax.append(maxia)
+        mini=maxia
+        for k in file:
+            if k[0]==j:
+                if int(k[1])<mini:
+                    mini=int(k[1])
+        listamin.append(mini)
+    tupla=list(zip(lista, listamax, listamin))
+    return tupla
 
 
 def pregunta_06():
-    """
-    La columna 5 codifica un diccionario donde cada cadena de tres letras corresponde a
-    una clave y el valor despues del caracter `:` corresponde al valor asociado a la
-    clave. Por cada clave, obtenga el valor asociado mas pequeño y el valor asociado mas
-    grande computados sobre todo el archivo.
+    file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
+    lista=[]
+    xlista=[row.split(",")for row in lista]
 
-    Rta/
-    [
-        ("aaa", 1, 9),
-        ("bbb", 1, 9),
-        ("ccc", 1, 10),
-        ("ddd", 0, 9),
-        ("eee", 1, 7),
-        ("fff", 0, 9),
-        ("ggg", 3, 10),
-        ("hhh", 0, 9),
-        ("iii", 0, 9),
-        ("jjj", 5, 17),
-    ]
+    coso=[]
+    for i in xlista:
+        coso.append(i)
+    final=[]
+    for j in coso:
+        if j[:3] not in final:
+            final.append(j[:3])
+    final.sort(reverse=False)
+    listamin=[]
+    listamax=[]
+    auxiliar=[]
 
-    """
-    return
+    for m in final:
+        for k in coso2:
+             if k[:3] ==m:
+                auxiliar.append(int(k[4:]))  
+        mini=min(auxiliar)
+        maxi=max(auxiliar)
+        listamin.append(mini)
+        listamax.append(maxi)
+        mini=0
+        maxi=0
+        auxiliar.clear()
+
+    tupla=list(zip(final,listamin,listamax))
+     return tupla
 
 
 def pregunta_07():
@@ -187,26 +194,34 @@ def pregunta_08():
 
 
 def pregunta_09():
-    """
-    Retorne un diccionario que contenga la cantidad de registros en que aparece cada
-    clave de la columna 5.
+    file=open("/content/programacion-en-python-yavelasquezo/data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
+    lista=[]
+    xlista=[row.split(",")for row in lista]
 
-    Rta/
-    {
-        "aaa": 13,
-        "bbb": 16,
-        "ccc": 23,
-        "ddd": 23,
-        "eee": 15,
-        "fff": 20,
-        "ggg": 13,
-        "hhh": 16,
-        "iii": 18,
-        "jjj": 18,
-    }
+    coso=[]
+    for i in xlista:
+        coso.append(i)
+    final=[]
+    for j in coso:
+        if j[:3] not in final:
+            final.append(j[:3])
+    final.sort(reverse=False)
+    
+    contador={}
+        for i in coso:
+        elemento=i[0]
+            if elemento in contador.keys():
+                contador[elemento] = contador[elemento]+1
+            else:
+                contador[elemento]=1
+    lista=list(zip(contador.keys(), contador.values()))
 
-    """
-    return
+   
+   
+    return lista
 
 
 def pregunta_10():
