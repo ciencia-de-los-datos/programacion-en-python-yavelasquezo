@@ -244,9 +244,9 @@ def pregunta_09():
                 contador[elemento]=contador[elemento]+1
             else:
                 contador[elemento]=1
-    lista=dict(zip(contador.keys(), contador.values()))
+    dicci=dict(zip(contador.keys(), contador.values()))
     
-    return lista
+    return dicci
 
 
 def pregunta_10():
