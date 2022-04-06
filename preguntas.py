@@ -23,6 +23,7 @@ def pregunta_01():
         suma=suma+valor
     return suma
 
+
 def pregunta_02():
     file=open("data.csv", "r").readlines()
     file=[z.replace("\n","")for z in file]
@@ -129,7 +130,7 @@ def pregunta_06():
     auxiliar=[]
 
     for m in final:
-        for k in coso2:
+        for k in coso:
              if k[:3] ==m:
                 auxiliar.append(int(k[4:]))  
         mini=min(auxiliar)
@@ -141,7 +142,7 @@ def pregunta_06():
         auxiliar.clear()
 
     tupla=list(zip(final,listamin,listamax))
-     return tupla
+    return tupla
 
 
 def pregunta_07():
@@ -212,28 +213,25 @@ def pregunta_09():
     file=[z.replace("\t",";")for z in file]
     file=[z.split(";") for z in file]
     lista=[]
-    xlista=[row.split(",")for row in lista]
-
-    coso=[]
-    for i in xlista:
-        coso.append(i)
+    for i in file:
+        lista.append(i[4])
+    maindict=[row.split(",")for row in lista]
+    coso2=[]
+    for i in maindict:
+        coso2.extend(i)
     final=[]
-    for j in coso:
-        if j[:3] not in final:
+    for j in coso2:
+        if j[:3]not in final:
             final.append(j[:3])
     final.sort(reverse=False)
-    
     contador={}
-        for i in coso:
+    for i in coso2:
         elemento=i[0]
-            if elemento in contador.keys():
-                contador[elemento] = contador[elemento]+1
-            else:
-                contador[elemento]=1
+        if elemento in contador.keys():
+            contador[elemento] = contador[elemento]+1
+        else:
+            contador[elemento]=1
     lista=list(zip(contador.keys(), contador.values()))
-
-   
-   
     return lista
 
 
@@ -266,6 +264,10 @@ def pregunta_10():
 
 
 def pregunta_11():
+    file=open("data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
     #saco la columna 4 y la separo
     lista=[]
     lista2=[]
