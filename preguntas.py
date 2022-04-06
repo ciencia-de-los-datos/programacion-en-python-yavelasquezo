@@ -160,7 +160,7 @@ def pregunta_07():
             lista.append(i[1])
     lista.sort(reverse=False)
 
-    listax=[]
+    
     listafinal=[]
     auxiliar=[]
     # recorro los valores de mi lista con numeros 
@@ -174,9 +174,7 @@ def pregunta_07():
         listafinal.append(list(auxiliar))
         auxiliar.clear()    
     tupla=list(zip(lista, listafinal))
-
- 
-   
+    tupla.sort(reverse=False)
     return tupla
 
 
@@ -207,6 +205,7 @@ def pregunta_08():
         listafinal.append(set(list(auxiliar)))
         auxiliar.clear()
     tupla=list(zip(lista, listafinal))
+    tupla.sort(reverse=False)
     return tupla
 
 
@@ -235,6 +234,7 @@ def pregunta_09():
         else:
             contador[elemento]=1
     lista=list(zip(contador.keys(), contador.values()))
+    lista.sort(reverse=False)
     return lista
 
 
@@ -249,7 +249,7 @@ def pregunta_10():
     lista3=[]
     #creo una lista para cada columna 1 4 y 5
     for i in file:
-        lista1.append(list(i[0]))
+        lista1.append(i[0])
         lista2.append(i[3])
         lista3.append(i[4])
     # saco las comas para la columna 4 y 5 para poder separar por elementos
