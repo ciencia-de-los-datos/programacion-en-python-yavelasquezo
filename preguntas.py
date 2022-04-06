@@ -215,24 +215,35 @@ def pregunta_09():
     file=[z.replace("\t",";")for z in file]
     file=[z.split(";") for z in file]
     lista=[]
+    #saco toda la columna 5 
     for i in file:
         lista.append(i[4])
     maindict=[row.split(",")for row in lista]
+    #Creo una lista de toda la columna 5 larga
     coso2=[]
     for i in maindict:
         coso2.extend(i)
     final=[]
+    #creo las claves
     for j in coso2:
         if j[:3]not in final:
             final.append(j[:3])
     final.sort(reverse=False)
+
+
+    coso2=[z.split(":") for z in coso2]
+
+    #itero si i esta en final y x esta en coso2 ub0 entonces contardor aumenta
     contador={}
-    for i in coso2:
-        elemento=i[0]
-        if elemento in contador.keys():
-            contador[elemento] = contador[elemento]+1
-        else:
-            contador[elemento]=1
+    for i in final:
+        for x in coso2:
+            if i == x[0]:
+             elemento=x[0]
+            if elemento in contador.keys():
+                
+                contador[elemento]=contador[elemento]+1
+            else:
+                contador[elemento]=1
     lista=list(zip(contador.keys(), contador.values()))
     lista.sort(reverse=False)
     return lista
