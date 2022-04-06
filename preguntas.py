@@ -244,8 +244,8 @@ def pregunta_09():
                 contador[elemento]=contador[elemento]+1
             else:
                 contador[elemento]=1
-    lista=list(zip(contador.keys(), contador.values()))
-    lista.sort(reverse=False)
+    lista=dict(zip(contador.keys(), contador.values()))
+    
     return lista
 
 
