@@ -37,6 +37,7 @@ def pregunta_02():
         else:
             contador[elemento]=1
     lista=list(zip(contador.keys(), contador.values()))
+    lista.sort(reverse=False)
     return lista
 
 
@@ -53,6 +54,7 @@ def pregunta_03():
         else:
             suma[elemento]=int(i[1])
     lista=list(zip(suma.keys(), suma.values()))
+    lista.sort(reverse=False)
     return lista
 
 
@@ -75,8 +77,7 @@ def pregunta_04():
         else:
             contador[coso]=1
     lista=list(zip(contador.keys(),contador.values()))
-  
-  
+    lista.sort(reverse=False)
     return lista
 
 
@@ -106,6 +107,7 @@ def pregunta_05():
                     mini=int(k[1])
         listamin.append(mini)
     tupla=list(zip(lista, listamax, listamin))
+    tupla.sort(reverse=False)
     return tupla
 
 
@@ -142,6 +144,7 @@ def pregunta_06():
         auxiliar.clear()
 
     tupla=list(zip(final,listamin,listamax))
+    tupla.sort(reverse=False)
     return tupla
 
 
