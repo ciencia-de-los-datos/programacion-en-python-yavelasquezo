@@ -195,13 +195,15 @@ def pregunta_08():
     lista.sort(reverse=False)
     listafinal=[]
     auxiliar=[]
+    Sin=[]
     # recorro los valores de mi lista con numeros 
     for m in lista:
         for n in file:
             if int(n[1])==m:
                 auxiliar.append(n[0])
-        listafinal.append(list(set(auxiliar)))
-        auxiliar.clear()
+        Sin=(list(set(auxiliar)))
+        Sin.sort(reverse=False)
+        listafinal.append(Sin)
     tupla=list(zip(lista, listafinal))
     tupla.sort(reverse=False)
     return tupla
