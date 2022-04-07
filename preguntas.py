@@ -119,22 +119,27 @@ def pregunta_06():
     lista=[]
     for i in file:
         lista.append(i[4])
-    xlista=[row.split(",")for row in lista]
-    coso=[]
-    for i in xlista:
-        coso.append(i)
+    #saco aparte toda la linea de la columna 5
+    maindict=[row.split(",")for row in lista]
+    coso2=[]
+    for i in maindict:
+        coso2.extend(i)
+    # voy a quitar los :
+    coso2=[row.split(":")for row in coso2]
     final=[]
-    for j in coso:
-        if j[:3] not in final:
-            final.append(j[:3])
+    for j in coso2:
+        if j[0]not in final:
+            final.append(j[0])
     final.sort(reverse=False)
+
     listamin=[]
     listamax=[]
     auxiliar=[]
+
     for m in final:
-        for k in coso:
-            if k[:3] ==m:
-                auxiliar.append(int(k[4:]))
+        for k in coso2:
+            if k[0] ==m:
+                auxiliar.append(int(k[1]))  
         mini=min(auxiliar)
         maxi=max(auxiliar)
         listamin.append(mini)
@@ -142,8 +147,10 @@ def pregunta_06():
         mini=0
         maxi=0
         auxiliar.clear()
+
     tupla=list(zip(final,listamin,listamax))
     tupla.sort(reverse=False)
+    
     return tupla
 
 
