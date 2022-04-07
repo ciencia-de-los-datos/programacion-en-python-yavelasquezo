@@ -133,7 +133,7 @@ def pregunta_06():
     auxiliar=[]
     for m in final:
         for k in coso:
-             if k[:3] ==m:
+            if k[:3] ==m:
                 auxiliar.append(int(k[4:]))  
         mini=min(auxiliar)
         maxi=max(auxiliar)
@@ -190,11 +190,8 @@ def pregunta_08():
     auxiliar=[]
     # recorro los valores de mi lista con numeros 
     for m in lista:
-    # recorro las letras de la lista
         for n in file:
-            #condiciono si el numero en posicion 2 es = a mi n que es el numero de la lista de los numeros que cree 
             if int(n[1])==m:
-            # me crea una lista con las letras que cumple
                 auxiliar.append(n[0])
         listafinal.append(list(set((auxiliar))))
         auxiliar.clear()
