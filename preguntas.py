@@ -193,7 +193,7 @@ def pregunta_08():
         for n in file:
             if int(n[1])==m:
                 auxiliar.append(n[0])
-        listafinal.append(list(set((auxiliar))))
+        listafinal.append(list(set(auxiliar)))
         auxiliar.clear()
     tupla=list(zip(lista, listafinal))
     tupla.sort(reverse=False)
