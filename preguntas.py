@@ -196,7 +196,7 @@ def pregunta_08():
             if int(n[1])==m:
             # me crea una lista con las letras que cumple
                 auxiliar.append(n[0])
-        listafinal.append(set(list(auxiliar)))
+        listafinal.append(list(set((auxiliar))))
         auxiliar.clear()
     tupla=list(zip(lista, listafinal))
     tupla.sort(reverse=False)
