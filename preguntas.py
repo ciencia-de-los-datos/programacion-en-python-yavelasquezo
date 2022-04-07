@@ -163,7 +163,7 @@ def pregunta_07():
     # recorro las letras de la lista
         for n in file:
             #condiciono si el numero en posicion 2 es = a mi n que es el numero de la lista de los numeros que cree 
-            if n[1]==m:
+            if int(n[1])==m:
             # me crea una lista con las letras que cumple
                 auxiliar.append(n[0])
         listafinal.append(list(auxiliar))
@@ -191,7 +191,7 @@ def pregunta_08():
     # recorro las letras de la lista
         for n in file:
             #condiciono si el numero en posicion 2 es = a mi n que es el numero de la lista de los numeros que cree 
-            if n[1]==m:
+            if int(n[1])==m:
             # me crea una lista con las letras que cumple
                 auxiliar.append(n[0])
         listafinal.append(set(list(auxiliar)))
