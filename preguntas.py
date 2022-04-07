@@ -134,7 +134,7 @@ def pregunta_06():
     for m in final:
         for k in coso:
             if k[:3] ==m:
-                auxiliar.append(int(k[4:]))  
+                auxiliar.append(int(k[4:]))
         mini=min(auxiliar)
         maxi=max(auxiliar)
         listamin.append(mini)
