@@ -117,6 +117,8 @@ def pregunta_06():
     file=[z.replace("\t",";")for z in file]
     file=[z.split(";") for z in file]
     lista=[]
+    for i in file:
+        lista.append(i[4])
     xlista=[row.split(",")for row in lista]
     coso=[]
     for i in xlista:
