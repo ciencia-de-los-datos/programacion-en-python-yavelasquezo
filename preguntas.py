@@ -153,8 +153,8 @@ def pregunta_07():
     lista=[]
     #creo una lista que me trae todos los numeros me los organiza
     for i in file:
-        if i[1] not in lista:
-            lista.append(i[1])
+        if int(i[1]) not in lista:
+            lista.append(int(i[1]))
     lista.sort(reverse=False)
     listafinal=[]
     auxiliar=[]
@@ -181,8 +181,8 @@ def pregunta_08():
     lista=[]
     #creo una lista que me trae todos los numeros me los organiza
     for i in file:
-        if i[1] not in lista:
-            lista.append(i[1])
+        if int(i[1]) not in lista:
+            lista.append(int(i[1]))
     lista.sort(reverse=False)
     listafinal=[]
     auxiliar=[]
@@ -227,11 +227,11 @@ def pregunta_09():
     for i in final:
         for x in coso2:
             if i == x[0]:
-             elemento=x[0]
-            if elemento in contador.keys():
-                contador[elemento]=contador[elemento]+1
-            else:
-                contador[elemento]=1
+                elemento=x[0]
+                if elemento in contador.keys():
+                    contador[elemento]=contador[elemento]+1
+                else:
+                    contador[elemento]=1
     dicci=dict(zip(contador.keys(), contador.values()))
     return dicci
 
