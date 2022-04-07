@@ -118,7 +118,6 @@ def pregunta_06():
     file=[z.split(";") for z in file]
     lista=[]
     xlista=[row.split(",")for row in lista]
-
     coso=[]
     for i in xlista:
         coso.append(i)
@@ -130,7 +129,6 @@ def pregunta_06():
     listamin=[]
     listamax=[]
     auxiliar=[]
-
     for m in final:
         for k in coso:
              if k[:3] ==m:
@@ -142,7 +140,6 @@ def pregunta_06():
         mini=0
         maxi=0
         auxiliar.clear()
-
     tupla=list(zip(final,listamin,listamax))
     tupla.sort(reverse=False)
     return tupla
@@ -159,8 +156,6 @@ def pregunta_07():
         if i[1] not in lista:
             lista.append(i[1])
     lista.sort(reverse=False)
-
-    
     listafinal=[]
     auxiliar=[]
     # recorro los valores de mi lista con numeros 
@@ -189,15 +184,12 @@ def pregunta_08():
         if i[1] not in lista:
             lista.append(i[1])
     lista.sort(reverse=False)
-
-
     listafinal=[]
     auxiliar=[]
     # recorro los valores de mi lista con numeros 
     for m in lista:
     # recorro las letras de la lista
         for n in file:
-            
             #condiciono si el numero en posicion 2 es = a mi n que es el numero de la lista de los numeros que cree 
             if n[1]==m:
             # me crea una lista con las letras que cumple
@@ -229,10 +221,7 @@ def pregunta_09():
         if j[:3]not in final:
             final.append(j[:3])
     final.sort(reverse=False)
-
-
     coso2=[z.split(":") for z in coso2]
-
     #itero si i esta en final y x esta en coso2 ub0 entonces contardor aumenta
     contador={}
     for i in final:
@@ -240,12 +229,10 @@ def pregunta_09():
             if i == x[0]:
              elemento=x[0]
             if elemento in contador.keys():
-                
                 contador[elemento]=contador[elemento]+1
             else:
                 contador[elemento]=1
     dicci=dict(zip(contador.keys(), contador.values()))
-    
     return dicci
 
 
@@ -291,7 +278,6 @@ def pregunta_11():
     lista=[row.split(",")for row in lista]
     #cree una lista nueva con los numeros de la columna 2 y la nueva lista 
     lista3=list(zip(lista,lista2))
-
     #ahora creo la lista de claves
     lista4=[]
     listasuma=[]
@@ -302,7 +288,6 @@ def pregunta_11():
             if i[:3] not in lista4:
                 lista4.append(i[:3])
     lista4.sort(reverse=False)
-
     #ahora si a iterar
     for l in lista4:
         for i in lista3:
