@@ -326,32 +326,36 @@ def pregunta_12():
 
     """
     #saco la columna 5 y le quito las comas
+    file=open("data.csv", "r").readlines()
+    file=[z.replace("\n","")for z in file]
+    file=[z.replace("\t",";")for z in file]
+    file=[z.split(";") for z in file]
     lista1=[]
     lista2=[]
     for i in file:
-    lista1.append(i[4])
-    lista2.append(i[0])
+        lista1.append(i[4])
+        lista2.append(i[0])
     lista1=[row.split(",")for row in lista1]
     lista4=[]
     for y in lista1:
-    listax=[row.split(":")for row in y]
-    lista4.append(listax)
+        listax=[row.split(":")for row in y]
+        lista4.append(listax)
     #la lista conjunto de la fila de letras + las claves con numeros
     listanew=list(zip(lista2,lista4))
     #saco las claves
     liscla=[]
     for t in listanew:
-    if t[0] not in liscla:
-        liscla.append(t[0])
+        if t[0] not in liscla:
+            liscla.append(t[0])
     liscla.sort(reverse=False)
     #ahora asocio las cosas a cada clave
     auxiliar=[]
     Listao=[]
     lp=[]
     for i in liscla:
-    for x in listanew:
-        if i==x[0]:
-        auxiliar.append(x[1])  
+        for x in listanew:
+            if i==x[0]:
+                auxiliar.append(x[1])  
     lp.append(auxiliar)
     auxiliar.clear()
     
