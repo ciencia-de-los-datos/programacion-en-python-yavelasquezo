@@ -204,6 +204,7 @@ def pregunta_08():
         Sin=(list(set(auxiliar)))
         Sin.sort(reverse=False)
         listafinal.append(Sin)
+        auxiliar.clear()
     tupla=list(zip(lista, listafinal))
     tupla.sort(reverse=False)
     return tupla
